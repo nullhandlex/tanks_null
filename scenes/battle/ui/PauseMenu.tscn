@@ -1,0 +1,144 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/figma_pause/pause_bg.png" id="2_bg"]
+[ext_resource type="PackedScene" path="res://scenes/main_menu/SettingsToggle.tscn" id="3_toggle"]
+[ext_resource type="Texture2D" path="res://assets/ui/figma_settings/icon_music_act.svg" id="4_mus_act"]
+[ext_resource type="Texture2D" path="res://assets/ui/figma_settings/icon_music_pass.svg" id="5_mus_pass"]
+[ext_resource type="Texture2D" path="res://assets/ui/figma_settings/icon_vibro_act.svg" id="6_vib_act"]
+[ext_resource type="Texture2D" path="res://assets/ui/figma_settings/icon_vibro_pass.svg" id="7_vib_pass"]
+[ext_resource type="Texture2D" path="res://assets/ui/figma_settings/icon_sfx_act.svg" id="8_sfx_act"]
+[ext_resource type="Texture2D" path="res://assets/ui/figma_settings/icon_sfx_pass.svg" id="9_sfx_pass"]
+[ext_resource type="Texture2D" path="res://assets/ui/figma_pause/btn_menu.png" id="10_menu"]
+[ext_resource type="Texture2D" path="res://assets/ui/figma_settings/btn_quit.png" id="11_quit"]
+[ext_resource type="Texture2D" path="res://assets/ui/figma_pause/btn_continue.png" id="12_cont"]
+[ext_resource type="LabelSettings" path="res://resources/ui/label_settings_action.tres" id="13_black"]
+[ext_resource type="LabelSettings" path="res://resources/ui/label_snd_act.tres" id="14_act"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+script = ExtResource("1_script")
+
+[node name="Bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MusicToggle" parent="." instance=ExtResource("3_toggle")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 40.0
+offset_top = 427.0
+offset_right = 1040.0
+offset_bottom = 603.0
+icon_act = ExtResource("4_mus_act")
+icon_pass = ExtResource("5_mus_pass")
+
+[node name="VibroToggle" parent="." instance=ExtResource("3_toggle")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 40.0
+offset_top = 675.0
+offset_right = 1040.0
+offset_bottom = 851.0
+title = "Вибро"
+icon_act = ExtResource("6_vib_act")
+icon_pass = ExtResource("7_vib_pass")
+
+[node name="SfxToggle" parent="." instance=ExtResource("3_toggle")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 40.0
+offset_top = 923.0
+offset_right = 1040.0
+offset_bottom = 1099.0
+title = "Звуковые эффекты"
+icon_act = ExtResource("8_sfx_act")
+icon_pass = ExtResource("9_sfx_pass")
+
+[node name="MenuButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 40.0
+offset_top = 1398.0
+offset_right = 500.0
+offset_bottom = 1574.0
+texture_normal = ExtResource("10_menu")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MenuLabel" type="Label" parent="MenuButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "В меню"
+label_settings = ExtResource("13_black")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 580.0
+offset_top = 1398.0
+offset_right = 1040.0
+offset_bottom = 1574.0
+texture_normal = ExtResource("11_quit")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="QuitLabel" type="Label" parent="QuitButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "Выйти"
+label_settings = ExtResource("13_black")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 40.0
+offset_top = 1654.0
+offset_right = 1040.0
+offset_bottom = 1830.0
+texture_normal = ExtResource("12_cont")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ContinueLabel" type="Label" parent="ContinueButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "Продолжить"
+label_settings = ExtResource("14_act")
+horizontal_alignment = 1
+vertical_alignment = 1

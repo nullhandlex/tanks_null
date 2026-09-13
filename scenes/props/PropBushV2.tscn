@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bushv2pr01"]
+
+[ext_resource type="PackedScene" uid="uid://c3propanim01" path="res://scenes/props/AnimatedProp.tscn" id="1_prop"]
+[ext_resource type="SpriteFrames" uid="uid://bbils7sdmd7w" path="res://resources/sprite_frames/props/bush_v2.tres" id="2_frames"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hcmib"]
+resource_local_to_scene = true
+radius = 30.24
+
+[node name="PropBushV2" unique_id=1334387503 instance=ExtResource("1_prop")]
+display_height = 108.0
+shadow_width_ratio = 1.0
+shadow_height_ratio = 0.4
+shadow_alpha = 0.25
+shadow_x_ratio = -0.06000000000000005
+shadow_y_ratio = -0.04999999999999999
+
+[node name="ShadowSprite" parent="." index="0" unique_id=881100001]
+modulate = Color(0, 0, 0, 0.25)
+position = Vector2(-9.24535, -5.4)
+scale = Vector2(0.6019108, 0.45)
+
+[node name="PropSprite" parent="." index="1" unique_id=1076651574]
+scale = Vector2(0.6878981, 0.6878981)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -78.5)
+
+[node name="CollisionShape2D" parent="Blocker" parent_id_path=PackedInt32Array(79764992) index="0" unique_id=458159912]
+shape = SubResource("CircleShape2D_hcmib")
+
+[node name="NavigationObstacle2D" parent="." index="3" unique_id=752602657]
+radius = 30.24

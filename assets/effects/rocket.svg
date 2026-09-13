@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="32" viewBox="0 0 96 32">
+  <!-- Rear fins -->
+  <polygon points="2,16 0,3 16,11 16,21 0,29" fill="#2e3138"/>
+  <polygon points="2,16 4,7 16,12 16,20 4,25" fill="#4a4e56"/>
+  <!-- Exhaust nozzle -->
+  <rect x="14" y="12" width="8" height="8" rx="1" fill="#1c1e22"/>
+  <!-- Fuselage -->
+  <rect x="20" y="10" width="50" height="12" rx="2" fill="#7a7e74"/>
+  <rect x="20" y="10" width="50" height="5" rx="2" fill="#8f9488" opacity="0.55"/>
+  <!-- Olive band + warning stripe -->
+  <rect x="34" y="10" width="10" height="12" fill="#5c6148"/>
+  <rect x="48" y="10" width="5" height="12" fill="#d4551a"/>
+  <!-- Warhead -->
+  <polygon points="70,10 93,16 70,22" fill="#cfc8b4"/>
+  <polygon points="70,10 88,16 70,16" fill="#e4dece"/>
+</svg>

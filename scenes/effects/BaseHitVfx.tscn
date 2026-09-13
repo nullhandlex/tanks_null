@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://basehitvfx01"]
+
+[ext_resource type="Script" path="res://scripts/effects/base_hit_vfx.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/effects/flash_blob.svg" id="2_flash"]
+[ext_resource type="Texture2D" path="res://assets/effects/hit_ring.svg" id="3_ring"]
+
+[sub_resource type="Gradient" id="Gradient_sparks"]
+offsets = PackedFloat32Array(0, 0.45, 1)
+colors = PackedColorArray(1, 0.97, 0.75, 1, 1, 0.5, 0.12, 0.9, 0.55, 0.15, 0.05, 0)
+
+[sub_resource type="Gradient" id="Gradient_debris"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(0.28, 0.24, 0.2, 1, 0.18, 0.15, 0.12, 0)
+
+[sub_resource type="Gradient" id="Gradient_smoke"]
+offsets = PackedFloat32Array(0, 0.35, 1)
+colors = PackedColorArray(0.55, 0.52, 0.5, 0.75, 0.42, 0.4, 0.38, 0.5, 0.3, 0.29, 0.28, 0)
+
+[node name="BaseHitVfx" type="Node2D"]
+z_index = 8
+script = ExtResource("1_script")
+
+[node name="Smoke" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+emitting = false
+amount = 12
+lifetime = 0.9
+one_shot = true
+explosiveness = 0.7
+spread = 180.0
+gravity = Vector2(0, -40)
+initial_velocity_min = 30.0
+initial_velocity_max = 110.0
+damping_min = 70.0
+damping_max = 140.0
+scale_amount_min = 0.16
+scale_amount_max = 0.36
+texture = ExtResource("2_flash")
+color_ramp = SubResource("Gradient_smoke")
+
+[node name="Ring" type="Sprite2D" parent="."]
+texture = ExtResource("3_ring")
+
+[node name="Flash" type="Sprite2D" parent="."]
+texture = ExtResource("2_flash")
+
+[node name="Debris" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 10
+lifetime = 0.75
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 900)
+initial_velocity_min = 90.0
+initial_velocity_max = 260.0
+scale_amount_min = 0.08
+scale_amount_max = 0.16
+texture = ExtResource("2_flash")
+color_ramp = SubResource("Gradient_debris")
+
+[node name="Sparks" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 18
+lifetime = 0.35
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 260)
+initial_velocity_min = 140.0
+initial_velocity_max = 420.0
+damping_min = 200.0
+damping_max = 420.0
+scale_amount_min = 0.08
+scale_amount_max = 0.16
+texture = ExtResource("2_flash")
+color_ramp = SubResource("Gradient_sparks")

@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://cvtjjp1okqe6n"]
+
+[ext_resource type="Script" uid="uid://dxsb2oknx1hk3" path="res://scripts/ui/menu_header.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bxv6i22smcv63" path="res://assets/ui/figma_header/header.png" id="2_plates"]
+[ext_resource type="Texture2D" uid="uid://ccspgm1on7unk" path="res://assets/ui/figma_header/avatar_shadow.png" id="3_shadow"]
+[ext_resource type="Texture2D" uid="uid://wrydlgxr2inu" path="res://assets/ui/figma_header/ellipse_fill.svg" id="4_fill"]
+[ext_resource type="Texture2D" uid="uid://cgexkrdpemwir" path="res://assets/ui/figma_header/soldier.svg" id="5_knight"]
+[ext_resource type="LabelSettings" path="res://resources/ui/label_header_name.tres" id="7_name"]
+[ext_resource type="LabelSettings" path="res://resources/ui/label_stat.tres" id="8_stat"]
+[ext_resource type="Shader" uid="uid://c7o1eamwkf7uw" path="res://shaders/ui/circle_clip_local.gdshader" id="9_cliploc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_knight"]
+shader = ExtResource("9_cliploc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_avatar"]
+shader = ExtResource("9_cliploc")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_name"]
+
+[node name="MenuHeader" type="Control" unique_id=811104571]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -23.0
+offset_top = -20.0
+offset_right = 24.0
+offset_bottom = 224.88889
+grow_horizontal = 2
+mouse_filter = 2
+script = ExtResource("1_script")
+
+[node name="HeaderPlates" type="TextureRect" parent="." unique_id=2089709636]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 202.0
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("2_plates")
+expand_mode = 1
+
+[node name="HeaderAvatarShadow" type="TextureRect" parent="." unique_id=1054735909]
+texture_filter = 2
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 230.0
+mouse_filter = 2
+texture = ExtResource("3_shadow")
+expand_mode = 1
+
+[node name="HeaderStubFill" type="TextureRect" parent="." unique_id=1265244986]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 182.0
+offset_bottom = 182.0
+mouse_filter = 2
+texture = ExtResource("4_fill")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HeaderStubKnight" type="TextureRect" parent="." unique_id=1097359656]
+material = SubResource("ShaderMaterial_knight")
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 182.0
+offset_bottom = 182.0
+mouse_filter = 2
+texture = ExtResource("5_knight")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HeaderAvatar" type="TextureRect" parent="." unique_id=1174073668]
+visible = false
+material = SubResource("ShaderMaterial_avatar")
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 182.0
+offset_bottom = 182.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="NameLabel" type="Label" parent="." unique_id=1769509215]
+layout_mode = 1
+offset_left = 201.0
+offset_top = 63.0
+offset_right = 829.0
+offset_bottom = 115.5
+text = "Зарегистрироваться"
+label_settings = ExtResource("7_name")
+vertical_alignment = 1
+clip_text = true
+
+[node name="NameHit" type="Button" parent="." unique_id=1165962277]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 850.0
+offset_bottom = 200.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_name")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_name")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_name")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_name")
+flat = true
+
+[node name="CoinsLabel" type="Label" parent="." unique_id=2127915344]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -394.0
+offset_top = 65.0
+offset_right = -154.0
+offset_bottom = 117.5
+grow_horizontal = 0
+text = "0"
+label_settings = ExtResource("8_stat")
+horizontal_alignment = 2
+vertical_alignment = 1

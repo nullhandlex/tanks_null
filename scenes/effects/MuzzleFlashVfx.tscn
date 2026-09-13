@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dpwbelx6noll5"]
+
+[ext_resource type="Script" path="res://scripts/effects/muzzle_flash_vfx.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/effects/flash_blob.svg" id="2_blob"]
+[ext_resource type="Texture2D" path="res://assets/effects/hit_ring.svg" id="3_ring"]
+
+[sub_resource type="Gradient" id="Gradient_sparks"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 0.95, 0.65, 1, 1, 0.55, 0.15, 0.9, 0.6, 0.2, 0.05, 0)
+
+[sub_resource type="Gradient" id="Gradient_smoke"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(0.72, 0.7, 0.67, 0.6, 0.45, 0.44, 0.42, 0)
+
+[node name="MuzzleFlashVfx" type="Node2D"]
+z_index = 8
+script = ExtResource("1_script")
+
+[node name="Smoke" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+emitting = false
+amount = 14
+lifetime = 0.65
+one_shot = true
+explosiveness = 0.85
+direction = Vector2(1, 0)
+spread = 35.0
+gravity = Vector2(0, -20)
+initial_velocity_min = 40.0
+initial_velocity_max = 130.0
+damping_min = 90.0
+damping_max = 160.0
+scale_amount_min = 0.12
+scale_amount_max = 0.28
+texture = ExtResource("2_blob")
+color_ramp = SubResource("Gradient_smoke")
+
+[node name="Ring" type="Sprite2D" parent="."]
+texture = ExtResource("3_ring")
+
+[node name="Flash" type="Sprite2D" parent="."]
+texture = ExtResource("2_blob")
+
+[node name="Sparks" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 16
+lifetime = 0.22
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(1, 0)
+spread = 22.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 120.0
+initial_velocity_max = 320.0
+damping_min = 300.0
+damping_max = 600.0
+scale_amount_min = 0.08
+scale_amount_max = 0.18
+texture = ExtResource("2_blob")
+color_ramp = SubResource("Gradient_sparks")

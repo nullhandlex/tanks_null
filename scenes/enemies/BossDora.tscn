@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bossdorasc01"]
+
+[ext_resource type="PackedScene" uid="uid://bcyrsk11pljaa" path="res://scenes/enemies/EnemyBase.tscn" id="1_base"]
+[ext_resource type="SpriteFrames" uid="uid://cgs3gelctasgj" path="res://resources/sprite_frames/enemies/boss_dora.tres" id="2_frames"]
+
+[node name="BossDora" unique_id=788698932 instance=ExtResource("1_base")]
+enemy_display_name = "Dora"
+clicks_to_destroy = 16
+max_hp = 160.0
+armor = 0.75
+energy_reward = 30.0
+move_speed = 56.0
+damage_per_shot = 26.0
+attack_rate = 2.4
+reward = 20
+shot_color = Color(1, 0.62, 0.25, 1)
+explosion_tint = Color(0.75, 0.35, 1, 1)
+crater_scale = 2.2
+crater_style = 8
+death_style = 8
+shot_style = 4
+muzzle_offsets = Array[Vector2]([Vector2(-0.02, 0.34)])
+fire_frame_ratio = 0.22
+display_height = 232.0
+shadow_width_ratio = 1.25
+shadow_height_ratio = 1.8
+shadow_alpha = 0.3
+shadow_y_ratio = -0.01
+
+[node name="ShadowSprite" parent="." index="0"]
+modulate = Color(0, 0, 0, 0.3)
+position = Vector2(0, -2.32)
+scale = Vector2(1.2288135, 4.35)
+
+[node name="VisualRoot" parent="." index="1"]
+scale = Vector2(0.7864407, 0.7864407)
+
+[node name="UnitSprite" parent="VisualRoot" index="0"]
+sprite_frames = ExtResource("2_frames")
+animation = &"move"
+autoplay = "move"
+
+[node name="TypeBadge" parent="VisualRoot" index="1"]
+theme_override_colors/font_color = Color(0.75, 0.35, 1, 1)
+text = "DORA"
+
+[node name="HpLabel" parent="VisualRoot" index="2"]
+theme_override_colors/font_color = Color(0.75, 0.35, 1, 1)
+
+[node name="CollisionShape2D" parent="." index="2"]
+scale = Vector2(2, 2)
+
+[node name="ClickArea" parent="." index="5"]
+scale = Vector2(2, 2)

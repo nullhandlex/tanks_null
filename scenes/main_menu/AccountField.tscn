@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/account_field.gd" id="1_script"]
+[ext_resource type="LabelSettings" path="res://resources/ui/label_account_field.tres" id="2_title"]
+[ext_resource type="FontFile" uid="uid://dt68c8mfel36m" path="res://assets/fonts/IBMPlexMono-Regular.ttf" id="3_font"]
+[ext_resource type="FontFile" uid="uid://tdplexlit01" path="res://assets/fonts/IBMPlexMono-LightItalic.ttf" id="4_italic"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_input"]
+content_margin_left = 32.0
+content_margin_top = 4.0
+content_margin_right = 32.0
+content_margin_bottom = 4.0
+bg_color = Color(0.866667, 0.929412, 0.945098, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.164706, 0.168627, 0.294118, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.164706, 0.168627, 0.294118, 0.36)
+shadow_size = 4
+shadow_offset = Vector2(0, 4)
+
+[node name="AccountField" type="Control"]
+custom_minimum_size = Vector2(999, 95)
+offset_right = 999.0
+offset_bottom = 95.0
+script = ExtResource("1_script")
+
+[node name="TitleLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 40.0
+offset_top = 0.0
+offset_right = 959.0
+offset_bottom = 42.0
+mouse_filter = 2
+text = "Имя"
+label_settings = ExtResource("2_title")
+vertical_alignment = 1
+
+[node name="Field" type="LineEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 0.0
+offset_top = 42.0
+offset_right = 999.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0.164706, 0.168627, 0.294118, 1)
+theme_override_colors/font_placeholder_color = Color(0.262745, 0.262745, 0.392157, 1)
+theme_override_colors/caret_color = Color(0.164706, 0.168627, 0.294118, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.25)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_fonts/font_placeholder = ExtResource("4_italic")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_input")
+theme_override_styles/focus = SubResource("StyleBoxFlat_input")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_input")
+placeholder_text = "Введите ваше имя"
+alignment = 0
+caret_blink = true

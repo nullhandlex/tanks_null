@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dgcymjoeqpe77"]
+
+[ext_resource type="PackedScene" uid="uid://c3propanim01" path="res://scenes/props/AnimatedProp.tscn" id="1_prop"]
+[ext_resource type="SpriteFrames" uid="uid://csa8j3d01cun7" path="res://resources/sprite_frames/props/wreck_tank.tres" id="2_frames"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c0a3q"]
+resource_local_to_scene = true
+radius = 42.0
+
+[node name="PropWreckTank" unique_id=2008409992 instance=ExtResource("1_prop")]
+display_height = 150.0
+shadow_width_ratio = 1.1
+shadow_height_ratio = 1.3
+shadow_alpha = 0.25
+shadow_y_ratio = -0.4
+
+[node name="ShadowSprite" parent="." index="0" unique_id=881100001]
+modulate = Color(0, 0, 0, 0.25)
+position = Vector2(0, -60)
+scale = Vector2(0.5006627, 2.03125)
+
+[node name="PropSprite" parent="." index="1" unique_id=1076651574]
+scale = Vector2(0.66964287, 0.66964287)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -112)
+
+[node name="Blocker" parent="." index="2" unique_id=79764992]
+visible = false
+
+[node name="CollisionShape2D" parent="Blocker" index="0" unique_id=458159912]
+visible = false
+shape = SubResource("CircleShape2D_c0a3q")
+
+[node name="NavigationObstacle2D" parent="." index="3" unique_id=752602657]
+visible = false
+radius = 42.0

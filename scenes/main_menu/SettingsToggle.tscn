@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/settings_toggle.gd" id="1_script"]
+[ext_resource type="LabelSettings" path="res://resources/ui/label_snd_act.tres" id="2_act"]
+
+[node name="SettingsToggle" type="TextureButton"]
+custom_minimum_size = Vector2(1000, 176)
+offset_right = 1000.0
+offset_bottom = 176.0
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("1_script")
+
+[node name="Content" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Row" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+mouse_filter = 2
+
+[node name="ToggleLabel" type="Label" parent="Content/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+label_settings = ExtResource("2_act")
+text = "Музыка"
+vertical_alignment = 1
+
+[node name="ToggleIcon" type="TextureRect" parent="Content/Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5

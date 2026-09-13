@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://tossc01"]
+
+[ext_resource type="PackedScene" uid="uid://bcyrsk11pljaa" path="res://scenes/enemies/EnemyBase.tscn" id="1_base"]
+[ext_resource type="SpriteFrames" uid="uid://c38uc4t6rg3ci" path="res://resources/sprite_frames/enemies/tos.tres" id="2_frames"]
+
+[node name="EnemyTos" unique_id=1652249539 instance=ExtResource("1_base")]
+enemy_display_name = "TOS"
+clicks_to_destroy = 7
+max_hp = 70.0
+armor = 0.35
+energy_reward = 12.0
+move_speed = 88.0
+damage_per_shot = 18.0
+attack_rate = 2.0
+reward = 7
+shot_color = Color(1, 0.45, 0.15, 1)
+explosion_tint = Color(1, 0.45, 0.2, 1)
+crater_scale = 1.62
+crater_style = 7
+death_style = 7
+shot_style = 3
+muzzle_offsets = Array[Vector2]([Vector2(-0.2, -0.26), Vector2(0.2, -0.26)])
+fire_frame_ratio = 0.24
+fire_frame = 4
+shots_per_burst = 2
+burst_interval = 0.28
+display_height = 172.0
+shadow_width_ratio = 1.5
+shadow_height_ratio = 1.6
+shadow_alpha = 0.3
+shadow_y_ratio = 0.02999999999999997
+
+[node name="ShadowSprite" parent="." index="0"]
+modulate = Color(0, 0, 0, 0.3)
+show_behind_parent = true
+position = Vector2(0, 5.16)
+scale = Vector2(3.784896, 11.466666)
+
+[node name="VisualRoot" parent="." index="1"]
+scale = Vector2(0.71666664, 0.71666664)
+
+[node name="UnitSprite" parent="VisualRoot" index="0"]
+sprite_frames = ExtResource("2_frames")
+animation = &"move"
+autoplay = "move"
+
+[node name="TypeBadge" parent="VisualRoot" index="1"]
+theme_override_colors/font_color = Color(1, 0.45, 0.2, 1)
+text = "TOS"
+
+[node name="HpLabel" parent="VisualRoot" index="2"]
+theme_override_colors/font_color = Color(1, 0.45, 0.2, 1)

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dihs1ty40w2ls"]
+
+[ext_resource type="PackedScene" uid="uid://bcyrsk11pljaa" path="res://scenes/enemies/EnemyBase.tscn" id="1_base"]
+[ext_resource type="SpriteFrames" uid="uid://dgg3wqoe6u2k5" path="res://resources/sprite_frames/enemies/nrk_minigun.tres" id="2_frames"]
+
+[node name="EnemyMinigun" unique_id=1738086309 instance=ExtResource("1_base")]
+enemy_display_name = "Minigun"
+clicks_to_destroy = 4
+max_hp = 40.0
+armor = 0.25
+energy_reward = 8.0
+move_speed = 114.0
+damage_per_shot = 8.0
+attack_rate = 0.85
+reward = 3
+shot_color = Color(1, 0.7, 0.3, 1)
+explosion_tint = Color(1, 0.55, 0.2, 1)
+crater_scale = 1.38
+crater_style = 3
+death_style = 3
+shot_style = 1
+muzzle_offsets = Array[Vector2]([Vector2(-0.41, -0.06), Vector2(0.41, -0.08)])
+fire_frame_ratio = 0.1
+shots_per_burst = 8
+burst_interval = 0.07
+display_height = 150.0
+shadow_width_ratio = 1.1
+shadow_height_ratio = 1.0
+shadow_alpha = 0.3
+shadow_y_ratio = 0.26
+
+[node name="ShadowSprite" parent="." index="0"]
+modulate = Color(0, 0, 0, 0.3)
+show_behind_parent = true
+position = Vector2(0, 39)
+scale = Vector2(2.8083148, 6.25)
+
+[node name="VisualRoot" parent="." index="1"]
+scale = Vector2(0.66964287, 0.66964287)
+
+[node name="UnitSprite" parent="VisualRoot" index="0"]
+sprite_frames = ExtResource("2_frames")
+animation = &"move"
+autoplay = "move"
+
+[node name="TypeBadge" parent="VisualRoot" index="1"]
+theme_override_colors/font_color = Color(1, 0.55, 0.2, 1)
+text = "Minigun"
+
+[node name="HpLabel" parent="VisualRoot" index="2"]
+theme_override_colors/font_color = Color(1, 0.55, 0.2, 1)

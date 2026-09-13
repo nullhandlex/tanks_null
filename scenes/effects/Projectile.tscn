@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://projectile01"]
+
+[ext_resource type="Script" path="res://scripts/effects/projectile.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/effects/flash_blob.svg" id="2_blob"]
+[ext_resource type="Texture2D" path="res://assets/effects/rocket.svg" id="3_rocket"]
+[ext_resource type="Texture2D" path="res://assets/effects/rocket_exhaust.svg" id="4_exhaust"]
+
+[sub_resource type="Curve" id="Curve_trail"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_trail"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_smoke"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(0.85, 0.83, 0.8, 0.55, 0.6, 0.58, 0.56, 0)
+
+[node name="Projectile" type="Node2D"]
+z_index = 8
+script = ExtResource("1_script")
+
+[node name="Smoke" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+emitting = false
+amount = 26
+lifetime = 0.55
+local_coords = false
+direction = Vector2(-1, 0)
+spread = 14.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 45.0
+scale_amount_min = 0.18
+scale_amount_max = 0.38
+texture = ExtResource("2_blob")
+color_ramp = SubResource("Gradient_smoke")
+
+[node name="Trail" type="Line2D" parent="."]
+width = 4.0
+width_curve = SubResource("Curve_trail")
+default_color = Color(1, 0.85, 0.35, 0.8)
+gradient = SubResource("Gradient_trail")
+points = PackedVector2Array(-80, 0, 0, 0)
+
+[node name="Glow" type="Sprite2D" parent="."]
+modulate = Color(1, 0.7, 0.3, 0.35)
+texture = ExtResource("2_blob")
+
+[node name="Core" type="Sprite2D" parent="."]
+texture = ExtResource("2_blob")
+
+[node name="RocketBody" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_rocket")
+
+[node name="RocketExhaust" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_exhaust")

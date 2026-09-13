@@ -1,0 +1,17 @@
+# Godot 4 project
+
+# Editor-generated, safe to regenerate
+.godot/
+/android/
+/build/
+/export/*.apk
+/export/*.aab
+
+# Secrets — never commit
+*keystore*
+export_presets.cfg.bak
+
+# OS / editor cruft
+.DS_Store
+*.swp
+*.bak

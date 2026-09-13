@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cfvtktfhtdtwu"]
+
+[ext_resource type="PackedScene" uid="uid://bcyrsk11pljaa" path="res://scenes/enemies/EnemyBase.tscn" id="1_base"]
+[ext_resource type="Texture2D" uid="uid://bvh4eq10j4pgi" path="res://assets/shadows/placeholder_shadow.svg" id="2_aq1ak"]
+[ext_resource type="SpriteFrames" uid="uid://daqt6vror2ney" path="res://resources/sprite_frames/enemies/boss_anigil.tres" id="2_frames"]
+
+[node name="BossAnigil" unique_id=384932099 instance=ExtResource("1_base")]
+y_sort_enabled = true
+enemy_display_name = "Anigil"
+clicks_to_destroy = 20
+max_hp = 200.0
+armor = 0.8
+energy_reward = 40.0
+move_speed = 48.0
+damage_per_shot = 30.0
+attack_rate = 2.6
+reward = 25
+shot_color = Color(1, 0.5, 0.4, 1)
+explosion_tint = Color(1, 0.3, 0.5, 1)
+crater_scale = 2.35
+crater_style = 9
+death_style = 9
+shot_style = 4
+fire_frame_ratio = 0.22
+display_height = 244.0
+shadow_width_ratio = 1.1
+shadow_height_ratio = 1.4
+shadow_alpha = 0.3
+shadow_y_ratio = 0.04999999999999999
+
+[node name="ShadowSprite" parent="." index="0"]
+modulate = Color(0, 0, 0, 0.3)
+position = Vector2(0, 12.2)
+scale = Vector2(4.6480727, 14.233334)
+texture = ExtResource("2_aq1ak")
+
+[node name="VisualRoot" parent="." index="1"]
+scale = Vector2(0.7625, 0.7625)
+
+[node name="UnitSprite" parent="VisualRoot" index="0"]
+sprite_frames = ExtResource("2_frames")
+animation = &"move"
+autoplay = "move"
+
+[node name="TypeBadge" parent="VisualRoot" index="1"]
+theme_override_colors/font_color = Color(1, 0.3, 0.5, 1)
+text = "ANIGIL"
+
+[node name="HpLabel" parent="VisualRoot" index="2"]
+theme_override_colors/font_color = Color(1, 0.3, 0.5, 1)
+
+[node name="CollisionShape2D" parent="." index="2"]
+scale = Vector2(2, 2)
+
+[node name="ClickArea" parent="." index="5"]
+scale = Vector2(1.5, 1.5)

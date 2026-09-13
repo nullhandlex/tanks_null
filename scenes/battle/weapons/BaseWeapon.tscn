@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4baseweapon01"]
+
+[ext_resource type="Script" path="res://scripts/battle/base_weapon.gd" id="1_weapon"]
+
+[node name="BaseWeapon" type="Node2D"]
+script = ExtResource("1_weapon")
+
+[node name="WeaponSprite" type="AnimatedSprite2D" parent="."]

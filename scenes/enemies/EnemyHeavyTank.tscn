@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://ds0235lvpytyy"]
+
+[ext_resource type="PackedScene" uid="uid://bcyrsk11pljaa" path="res://scenes/enemies/EnemyBase.tscn" id="1_base"]
+[ext_resource type="SpriteFrames" uid="uid://bscmjrnr7ie7h" path="res://resources/sprite_frames/enemies/tank_heavy.tres" id="2_frames"]
+
+[node name="EnemyHeavyTank" unique_id=463463269 instance=ExtResource("1_base")]
+enemy_display_name = "Heavy"
+clicks_to_destroy = 9
+max_hp = 90.0
+armor = 0.6
+energy_reward = 16.0
+move_speed = 78.0
+damage_per_shot = 16.0
+attack_rate = 1.6
+reward = 9
+shot_color = Color(1, 0.8, 0.45, 1)
+explosion_tint = Color(0.35, 0.65, 1, 1)
+crater_scale = 1.85
+crater_style = 6
+death_style = 6
+shot_style = 2
+muzzle_offsets = Array[Vector2]([Vector2(-0.11, 0.1), Vector2(0.15, 0.08)])
+fire_frame_ratio = 0.38
+fire_frame = 8
+shots_per_burst = 2
+burst_interval = 0.22
+display_height = 192.0
+shadow_width_ratio = 1.4
+shadow_height_ratio = 1.5999999999999999
+shadow_alpha = 0.3
+shadow_y_ratio = 0.02999999999999997
+
+[node name="ShadowSprite" parent="." index="0"]
+modulate = Color(0, 0, 0, 0.3)
+show_behind_parent = true
+position = Vector2(0, 5.76)
+scale = Vector2(4.4625, 12.8)
+
+[node name="VisualRoot" parent="." index="1"]
+scale = Vector2(0.75, 0.75)
+
+[node name="UnitSprite" parent="VisualRoot" index="0"]
+sprite_frames = ExtResource("2_frames")
+animation = &"move"
+autoplay = "move"
+
+[node name="TypeBadge" parent="VisualRoot" index="1"]
+theme_override_colors/font_color = Color(0.35, 0.65, 1, 1)
+text = "Heavy"
+
+[node name="HpLabel" parent="VisualRoot" index="2"]
+theme_override_colors/font_color = Color(0.35, 0.65, 1, 1)
+
+[node name="CollisionShape2D" parent="." index="2"]
+scale = Vector2(2, 2)
+
+[node name="ClickArea" parent="." index="5"]
+scale = Vector2(1.5, 1.5)

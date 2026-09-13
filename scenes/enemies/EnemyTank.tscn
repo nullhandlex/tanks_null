@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://tanksc01"]
+
+[ext_resource type="PackedScene" uid="uid://bcyrsk11pljaa" path="res://scenes/enemies/EnemyBase.tscn" id="1_base"]
+[ext_resource type="SpriteFrames" uid="uid://w0krqdtwuvft" path="res://resources/sprite_frames/enemies/tank.tres" id="2_frames"]
+
+[node name="EnemyTank" unique_id=1079292295 instance=ExtResource("1_base")]
+enemy_display_name = "Tank"
+clicks_to_destroy = 6
+max_hp = 60.0
+armor = 0.4
+energy_reward = 10.0
+move_speed = 100.0
+damage_per_shot = 12.0
+attack_rate = 1.4
+reward = 5
+shot_color = Color(1, 0.72, 0.25, 1)
+explosion_tint = Color(0.4, 0.7, 1, 1)
+crater_scale = 1.55
+crater_style = 5
+death_style = 5
+shot_style = 2
+muzzle_offsets = Array[Vector2]([Vector2(0, 0.18)])
+fire_frame_ratio = 0.5
+fire_frame = 10
+display_height = 168.0
+shadow_width_ratio = 1.2000000000000002
+shadow_height_ratio = 1.5
+shadow_alpha = 0.3
+shadow_y_ratio = 0.03999999999999998
+
+[node name="ShadowSprite" parent="." index="0"]
+modulate = Color(0, 0, 0, 0.3)
+show_behind_parent = true
+position = Vector2(0, 6.72)
+scale = Vector2(3.0975, 10.5)
+
+[node name="VisualRoot" parent="." index="1"]
+scale = Vector2(0.7, 0.7)
+
+[node name="UnitSprite" parent="VisualRoot" index="0"]
+sprite_frames = ExtResource("2_frames")
+animation = &"move"
+autoplay = "move"
+
+[node name="TypeBadge" parent="VisualRoot" index="1"]
+theme_override_colors/font_color = Color(0.4, 0.7, 1, 1)
+text = "Tank"
+
+[node name="HpLabel" parent="VisualRoot" index="2"]
+theme_override_colors/font_color = Color(0.4, 0.7, 1, 1)

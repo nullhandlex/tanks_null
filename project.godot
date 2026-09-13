@@ -1,0 +1,46 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="TD"
+config/description="Tower Defense — Godot port (portrait mobile)"
+config/version="0.1.0"
+run/main_scene="res://scenes/boot/LoadScreen.tscn"
+config/features=PackedStringArray("4.7", "Mobile")
+boot_splash/bg_color=Color(0.188235, 0.188235, 0.188235, 1)
+boot_splash/image="res://assets/ui/load_screen/load_0001.png"
+config/icon="res://assets/ui/logo.png"
+
+[autoload]
+
+GameData="*res://scripts/autoload/game_data.gd"
+GameManager="*res://scripts/autoload/game_manager.gd"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/size/window_width_override=540
+window/size/window_height_override=960
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.188235, 0.188235, 0.188235, 1)
+renderer/fallback_to_opengl3=true

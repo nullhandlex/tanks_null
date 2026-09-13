@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://treev1pr01"]
+
+[ext_resource type="PackedScene" uid="uid://c3propanim01" path="res://scenes/props/AnimatedProp.tscn" id="1_prop"]
+[ext_resource type="SpriteFrames" uid="uid://c817dadls45vt" path="res://resources/sprite_frames/props/tree_v1.tres" id="2_frames"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kfohc"]
+resource_local_to_scene = true
+radius = 58.8
+
+[node name="PropTreeV1" unique_id=704451071 instance=ExtResource("1_prop")]
+display_height = 210.0
+shadow_width_ratio = 0.85
+shadow_height_ratio = 0.26
+shadow_alpha = 0.25
+shadow_x_ratio = -0.01
+shadow_y_ratio = -0.07
+
+[node name="ShadowSprite" parent="." index="0" unique_id=881100001]
+modulate = Color(0, 0, 0, 0.25)
+position = Vector2(-1.6980469, -14.7)
+scale = Vector2(0.5638046, 0.56875)
+
+[node name="PropSprite" parent="." index="1" unique_id=1076651574]
+scale = Vector2(0.8203125, 0.8203125)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -128)
+
+[node name="CollisionShape2D" parent="Blocker" parent_id_path=PackedInt32Array(79764992) index="0" unique_id=458159912]
+shape = SubResource("CircleShape2D_kfohc")
+
+[node name="NavigationObstacle2D" parent="." index="3" unique_id=752602657]
+radius = 58.8

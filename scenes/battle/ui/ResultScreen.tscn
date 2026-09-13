@@ -1,0 +1,319 @@
+[gd_scene format=3 uid="uid://bbcm7014i6hwa"]
+
+[ext_resource type="Script" uid="uid://deolpiomndrfm" path="res://scripts/ui/result_screen.gd" id="1_result"]
+[ext_resource type="LabelSettings" path="res://resources/ui/label_stat.tres" id="5_stat"]
+[ext_resource type="Texture2D" path="res://assets/ui/figma_lose/lose_bg.png" id="6_lose_bg"]
+[ext_resource type="PackedScene" path="res://scenes/ui/MenuHeader.tscn" id="7_header"]
+[ext_resource type="Texture2D" uid="uid://bt13ewurgjavn" path="res://assets/ui/figma_lose/lose_face.svg" id="8_lose_face"]
+[ext_resource type="Texture2D" uid="uid://djtwhsy1lr1ce" path="res://assets/ui/figma_lose/lose_title.svg" id="9_lose_title"]
+[ext_resource type="Texture2D" path="res://assets/ui/figma_lose/lose_coin.svg" id="11_lose_coin"]
+[ext_resource type="Texture2D" uid="uid://dk12irqp7t53d" path="res://assets/ui/figma_lose/lose_btn.png" id="12_lose_btn"]
+[ext_resource type="LabelSettings" path="res://resources/ui/label_claim.tres" id="13_claim"]
+[ext_resource type="Texture2D" path="res://assets/ui/figma_win/win_bg.png" id="14_win_bg"]
+[ext_resource type="Texture2D" path="res://assets/ui/figma_win/win_mascot.png" id="16_win_mascot"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prize"]
+bg_color = Color(0.164706, 0.168627, 0.294118, 1)
+corner_radius_top_left = 69
+corner_radius_top_right = 69
+corner_radius_bottom_right = 69
+corner_radius_bottom_left = 69
+
+[node name="ResultScreen" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+script = ExtResource("1_result")
+
+[node name="WinRoot" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Bg" type="TextureRect" parent="WinRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("14_win_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Mascot" type="TextureRect" parent="WinRoot"]
+layout_mode = 1
+offset_left = 155.0
+offset_top = 396.0
+offset_right = 926.0
+offset_bottom = 815.0
+mouse_filter = 2
+texture = ExtResource("16_win_mascot")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WavesCaption" type="Label" parent="WinRoot"]
+layout_mode = 1
+offset_left = 289.0
+offset_top = 922.0
+offset_right = 649.0
+offset_bottom = 974.0
+label_settings = ExtResource("5_stat")
+text = "Волн завершено:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="WinWavesValue" type="Label" parent="WinRoot"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 672.0
+offset_top = 922.0
+offset_right = 792.0
+offset_bottom = 974.0
+label_settings = ExtResource("5_stat")
+text = "10\\10"
+horizontal_alignment = 0
+vertical_alignment = 1
+
+[node name="PrizePanel" type="Panel" parent="WinRoot"]
+layout_mode = 1
+offset_left = 201.0
+offset_top = 1047.0
+offset_right = 879.0
+offset_bottom = 1308.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_prize")
+
+[node name="WinCoinsLabel" type="Label" parent="WinRoot"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 433.0
+offset_top = 1162.0
+offset_right = 553.0
+offset_bottom = 1214.0
+label_settings = ExtResource("5_stat")
+text = "150 x"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PrizeCoin" type="TextureRect" parent="WinRoot"]
+layout_mode = 1
+offset_left = 578.0
+offset_top = 1140.0
+offset_right = 648.0
+offset_bottom = 1215.944
+mouse_filter = 2
+texture = ExtResource("11_lose_coin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WinClaim" type="Control" parent="WinRoot"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 249.0
+offset_top = 1374.0
+offset_right = 831.0
+offset_bottom = 1638.0
+mouse_filter = 2
+
+[node name="ClaimArt" type="TextureRect" parent="WinRoot/WinClaim"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("12_lose_btn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WinClaimButton" type="TextureButton" parent="WinRoot/WinClaim"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 518.0
+offset_bottom = 200.0
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ClaimLabel" type="Label" parent="WinRoot/WinClaim"]
+layout_mode = 1
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 518.0
+offset_bottom = 200.0
+mouse_filter = 2
+label_settings = ExtResource("13_claim")
+text = "Получить"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoseRoot" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Bg" type="TextureRect" parent="LoseRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_lose_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="DefeatGroup" type="Control" parent="LoseRoot"]
+layout_mode = 1
+offset_left = 200.0
+offset_top = 396.0
+offset_right = 880.0
+offset_bottom = 850.0
+mouse_filter = 2
+
+[node name="Face" type="TextureRect" parent="LoseRoot/DefeatGroup"]
+layout_mode = 1
+offset_left = 215.159
+offset_top = -0.056
+offset_right = 450.814
+offset_bottom = 253.287
+mouse_filter = 2
+texture = ExtResource("8_lose_face")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="TextureRect" parent="LoseRoot/DefeatGroup"]
+layout_mode = 1
+offset_left = 1.381
+offset_top = 282.18
+offset_right = 678.607
+offset_bottom = 452.649
+mouse_filter = 2
+texture = ExtResource("9_lose_title")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WavesCaption" type="Label" parent="LoseRoot"]
+layout_mode = 1
+offset_left = 301.0
+offset_top = 922.0
+offset_right = 661.0
+offset_bottom = 974.0
+label_settings = ExtResource("5_stat")
+text = "Волн завершено:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LoseWavesValue" type="Label" parent="LoseRoot"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 684.0
+offset_top = 922.0
+offset_right = 780.0
+offset_bottom = 974.0
+label_settings = ExtResource("5_stat")
+text = "3\\10"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PrizePanel" type="Panel" parent="LoseRoot"]
+layout_mode = 1
+offset_left = 201.0
+offset_top = 1047.0
+offset_right = 879.0
+offset_bottom = 1308.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_prize")
+
+[node name="LoseCoinsLabel" type="Label" parent="LoseRoot"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 445.0
+offset_top = 1162.0
+offset_right = 541.0
+offset_bottom = 1214.0
+label_settings = ExtResource("5_stat")
+text = "20 x"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PrizeCoin" type="TextureRect" parent="LoseRoot"]
+layout_mode = 1
+offset_left = 566.0
+offset_top = 1140.0
+offset_right = 636.0
+offset_bottom = 1215.944
+mouse_filter = 2
+texture = ExtResource("11_lose_coin")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LoseClaim" type="Control" parent="LoseRoot"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 249.0
+offset_top = 1374.0
+offset_right = 831.0
+offset_bottom = 1638.0
+mouse_filter = 2
+
+[node name="ClaimArt" type="TextureRect" parent="LoseRoot/LoseClaim"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("12_lose_btn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LoseClaimButton" type="TextureButton" parent="LoseRoot/LoseClaim"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 518.0
+offset_bottom = 200.0
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ClaimLabel" type="Label" parent="LoseRoot/LoseClaim"]
+layout_mode = 1
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 518.0
+offset_bottom = 200.0
+mouse_filter = 2
+label_settings = ExtResource("13_claim")
+text = "Получить"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuHeader" parent="." instance=ExtResource("7_header")]
+unique_name_in_owner = true
+layout_mode = 1
+name_interactive = false

@@ -1,0 +1,707 @@
+[gd_scene format=3 uid="uid://esblrpc11h53"]
+
+[ext_resource type="Script" uid="uid://bgw53bffpy2xs" path="res://scripts/ui/main_menu.gd" id="1_main_menu"]
+[ext_resource type="Texture2D" uid="uid://bjmm40afyx66x" path="res://assets/ui/clicker_start.png" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://bjnev8y2owmkx" path="res://assets/ui/mapname.png" id="3_map"]
+[ext_resource type="Texture2D" uid="uid://dcumoiksll2wb" path="res://assets/ui/lockgroup.png" id="4_lock"]
+[ext_resource type="Texture2D" uid="uid://b6ms7kgjd801c" path="res://assets/ui/btnStart.png" id="5_start"]
+[ext_resource type="Texture2D" uid="uid://dccm0ytncmf33" path="res://assets/ui/settings.png" id="6_settings"]
+[ext_resource type="Texture2D" uid="uid://ptjk2apon6em" path="res://assets/ui/base_off.png" id="7_base"]
+[ext_resource type="Texture2D" uid="uid://gtco8cxk87j6" path="res://assets/ui/fight_act.png" id="8_fight"]
+[ext_resource type="Texture2D" uid="uid://24q3mc0147gc" path="res://assets/ui/wallet.png" id="9_wallet"]
+[ext_resource type="LabelSettings" path="res://resources/ui/label_heading.tres" id="10_heading"]
+[ext_resource type="PackedScene" path="res://scenes/main_menu/SettingsToggle.tscn" id="12_toggle"]
+[ext_resource type="Texture2D" uid="uid://bhtypxbufy504" path="res://assets/ui/figma_settings/btn_quit.png" id="14_btn_quit"]
+[ext_resource type="Texture2D" uid="uid://o5yfnmlp5658" path="res://assets/ui/figma_settings/settings_bg.svg" id="17_set_bg"]
+[ext_resource type="Texture2D" uid="uid://dbtnaccount01" path="res://assets/ui/figma_settings/btn_account.png" id="18_btn_acc"]
+[ext_resource type="LabelSettings" path="res://resources/ui/label_settings_action.tres" id="19_set_act"]
+[ext_resource type="Texture2D" uid="uid://cj213i8s06svk" path="res://assets/ui/figma_settings/icon_music_act.svg" id="20_mus_act"]
+[ext_resource type="Texture2D" uid="uid://b6dpcrhbpsskd" path="res://assets/ui/figma_settings/icon_music_pass.svg" id="21_mus_pass"]
+[ext_resource type="Texture2D" uid="uid://bq4a0ifpnfnms" path="res://assets/ui/figma_settings/icon_vibro_act.svg" id="22_vib_act"]
+[ext_resource type="Texture2D" uid="uid://pfhqx6tko3qm" path="res://assets/ui/figma_settings/icon_vibro_pass.svg" id="23_vib_pass"]
+[ext_resource type="Texture2D" uid="uid://bcc63fquccpgp" path="res://assets/ui/figma_settings/icon_sfx_act.svg" id="24_sfx_act"]
+[ext_resource type="Texture2D" uid="uid://drjwykagtf56r" path="res://assets/ui/figma_settings/icon_sfx_pass.svg" id="25_sfx_pass"]
+[ext_resource type="PackedScene" path="res://scenes/main_menu/AccountField.tscn" id="26_acc_field"]
+[ext_resource type="PackedScene" uid="uid://cvtjjp1okqe6n" path="res://scenes/ui/MenuHeader.tscn" id="29_header"]
+[ext_resource type="Texture2D" uid="uid://wrydlgxr2inu" path="res://assets/ui/figma_header/ellipse_fill.svg" id="30_fill"]
+[ext_resource type="Texture2D" uid="uid://cgexkrdpemwir" path="res://assets/ui/figma_header/soldier.svg" id="31_knight"]
+[ext_resource type="LabelSettings" path="res://resources/ui/label_snd_act.tres" id="33_snd_act"]
+[ext_resource type="Shader" uid="uid://bbqn175bwl8e3" path="res://shaders/ui/circle_clip.gdshader" id="34_clip"]
+[ext_resource type="Texture2D" uid="uid://bec7vl8d18ytc" path="res://assets/ui/figma_account/plus.svg" id="35_plus"]
+[ext_resource type="Shader" path="res://shaders/ui/rounded_rect_clip.gdshader" id="36_round"]
+[ext_resource type="LabelSettings" path="res://resources/ui/label_settings_action.tres" id="37_acc_name"]
+[ext_resource type="LabelSettings" path="res://resources/ui/label_account_info.tres" id="38_acc_info"]
+[ext_resource type="LabelSettings" path="res://resources/ui/label_account_info_italic.tres" id="39_acc_ital"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_flat"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_soon"]
+content_margin_left = 36.0
+content_margin_top = 28.0
+content_margin_right = 36.0
+content_margin_bottom = 28.0
+bg_color = Color(0.176, 0.18, 0.306, 0.92)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_account_clip"]
+shader = ExtResource("34_clip")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_account_photo"]
+shader = ExtResource("36_round")
+shader_parameter/corner_radius = 32.0
+shader_parameter/rect_size = Vector2(346, 330)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avatar_frame"]
+bg_color = Color(0.164706, 0.168627, 0.294118, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.164706, 0.168627, 0.294118, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_color = Color(0.164706, 0.168627, 0.294118, 0.35)
+shadow_size = 12
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_save"]
+bg_color = Color(0.0901961, 0.870588, 0.556863, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_back"]
+bg_color = Color(0.866667, 0.929412, 0.945098, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avatar_hit"]
+
+[node name="MainMenu" type="Control" unique_id=58846274]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_main_menu")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1361369530]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LevelSelect" type="Control" parent="." unique_id=1069891940]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TitleLabel" type="Label" parent="LevelSelect" unique_id=749064765]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 500.0
+offset_bottom = 610.0
+grow_horizontal = 2
+text = "Арена 1: Поле"
+label_settings = ExtResource("10_heading")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PreviewWrap" type="Control" parent="LevelSelect" unique_id=645043708]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -320.0
+offset_right = 340.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MapPreview" type="TextureRect" parent="LevelSelect/PreviewWrap" unique_id=1931087176]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_map")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LockOverlay" type="TextureRect" parent="LevelSelect/PreviewWrap" unique_id=177219039]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_lock")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PrevArena" type="Button" parent="LevelSelect" unique_id=133409378]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -530.0
+offset_top = -80.0
+offset_right = -360.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.78, 0.28, 1)
+theme_override_colors/font_hover_color = Color(1, 0.92, 0.55, 1)
+theme_override_colors/font_outline_color = Color(0.18, 0.2, 0.3, 0.95)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxEmpty_flat")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_flat")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_flat")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_flat")
+text = "<"
+
+[node name="NextArena" type="Button" parent="LevelSelect" unique_id=467642854]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 360.0
+offset_top = -80.0
+offset_right = 530.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.78, 0.28, 1)
+theme_override_colors/font_hover_color = Color(1, 0.92, 0.55, 1)
+theme_override_colors/font_outline_color = Color(0.18, 0.2, 0.3, 0.95)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 120
+theme_override_styles/normal = SubResource("StyleBoxEmpty_flat")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_flat")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_flat")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_flat")
+text = ">"
+
+[node name="StartButton" type="TextureButton" parent="LevelSelect" unique_id=1413981785]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = 430.0
+offset_right = 260.0
+offset_bottom = 620.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_start")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ComingSoon" type="Control" parent="." unique_id=1866719809]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 160.0
+offset_bottom = -225.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="ComingSoon" unique_id=1843305137]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -90.0
+offset_right = 320.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_soon")
+
+[node name="ComingSoonLabel" type="Label" parent="ComingSoon/Panel" unique_id=943315418]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Скоро"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsRoot" type="Control" parent="." unique_id=1139868270]
+unique_name_in_owner = true
+visible = false
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SettingsBg" type="TextureRect" parent="SettingsRoot" unique_id=1854245005]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_right = 106.67
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("17_set_bg")
+expand_mode = 1
+
+[node name="MusicToggle" parent="SettingsRoot" unique_id=1346090941 instance=ExtResource("12_toggle")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 40.0
+offset_top = 275.0
+offset_right = 1040.0
+offset_bottom = 451.0
+icon_act = ExtResource("20_mus_act")
+icon_pass = ExtResource("21_mus_pass")
+
+[node name="VibroToggle" parent="SettingsRoot" unique_id=528965687 instance=ExtResource("12_toggle")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 40.0
+offset_top = 523.0
+offset_right = 1040.0
+offset_bottom = 699.0
+title = "Вибро"
+icon_act = ExtResource("22_vib_act")
+icon_pass = ExtResource("23_vib_pass")
+
+[node name="SfxToggle" parent="SettingsRoot" unique_id=1799021236 instance=ExtResource("12_toggle")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 40.0
+offset_top = 771.0
+offset_right = 1040.0
+offset_bottom = 947.0
+title = "Звуковые эффекты"
+icon_act = ExtResource("24_sfx_act")
+icon_pass = ExtResource("25_sfx_pass")
+
+[node name="AccountButton" type="TextureButton" parent="SettingsRoot" unique_id=980093616]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 40.0
+offset_top = 1299.0
+offset_right = 500.0
+offset_bottom = 1475.0
+texture_normal = ExtResource("18_btn_acc")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AccountButtonLabel" type="Label" parent="SettingsRoot/AccountButton" unique_id=1048360863]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Аккаунт"
+label_settings = ExtResource("19_set_act")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="SettingsRoot" unique_id=1080836492]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 580.0
+offset_top = 1299.0
+offset_right = 1040.0
+offset_bottom = 1475.0
+texture_normal = ExtResource("14_btn_quit")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="QuitButtonLabel" type="Label" parent="SettingsRoot/QuitButton" unique_id=702390992]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Выйти"
+label_settings = ExtResource("19_set_act")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AccountRoot" type="Control" parent="." unique_id=68759467]
+unique_name_in_owner = true
+visible = false
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AccountBg" type="TextureRect" parent="AccountRoot" unique_id=1970377662]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_right = 106.67
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("17_set_bg")
+expand_mode = 1
+
+[node name="AccountAvatarFrame" type="Panel" parent="AccountRoot"]
+layout_mode = 1
+offset_left = 117.0
+offset_top = 232.0
+offset_right = 463.0
+offset_bottom = 562.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_avatar_frame")
+
+[node name="AccountStubFill" type="TextureRect" parent="AccountRoot/AccountAvatarFrame"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 53.0
+offset_top = 45.0
+offset_right = 293.0
+offset_bottom = 285.0
+mouse_filter = 2
+texture = ExtResource("30_fill")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AccountStubKnight" type="TextureRect" parent="AccountRoot/AccountAvatarFrame"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_account_clip")
+layout_mode = 1
+offset_left = 53.0
+offset_top = 45.0
+offset_right = 293.0
+offset_bottom = 285.0
+mouse_filter = 2
+texture = ExtResource("31_knight")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AccountAvatar" type="TextureRect" parent="AccountRoot/AccountAvatarFrame"]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_account_photo")
+layout_mode = 1
+offset_right = 346.0
+offset_bottom = 330.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="AccountPlus" type="TextureRect" parent="AccountRoot/AccountAvatarFrame"]
+layout_mode = 1
+offset_left = 270.0
+offset_top = 257.0
+offset_right = 320.0
+offset_bottom = 307.0
+mouse_filter = 2
+texture = ExtResource("35_plus")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AccountAvatarHit" type="Button" parent="AccountRoot/AccountAvatarFrame"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 346.0
+offset_bottom = 330.0
+focus_mode = 0
+flat = true
+theme_override_styles/normal = SubResource("StyleBoxEmpty_avatar_hit")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_avatar_hit")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_avatar_hit")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_avatar_hit")
+
+[node name="PreviewName" type="Label" parent="AccountRoot"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 617.0
+offset_top = 232.0
+offset_right = 1040.0
+offset_bottom = 315.0
+mouse_filter = 2
+label_settings = ExtResource("37_acc_name")
+vertical_alignment = 1
+clip_text = true
+
+[node name="PreviewAge" type="Label" parent="AccountRoot"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 617.0
+offset_top = 332.0
+offset_right = 1040.0
+offset_bottom = 380.0
+mouse_filter = 2
+label_settings = ExtResource("38_acc_info")
+vertical_alignment = 1
+clip_text = true
+
+[node name="PreviewEmail" type="Label" parent="AccountRoot"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 617.0
+offset_top = 392.0
+offset_right = 1040.0
+offset_bottom = 444.0
+mouse_filter = 2
+label_settings = ExtResource("39_acc_ital")
+vertical_alignment = 1
+clip_text = true
+
+[node name="PreviewPhone" type="Label" parent="AccountRoot"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 617.0
+offset_top = 454.0
+offset_right = 1040.0
+offset_bottom = 506.0
+mouse_filter = 2
+label_settings = ExtResource("39_acc_ital")
+vertical_alignment = 1
+clip_text = true
+
+[node name="NameField" parent="AccountRoot" unique_id=958836976 instance=ExtResource("26_acc_field")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 0
+offset_left = 41.0
+offset_top = 602.0
+offset_right = 1040.0
+offset_bottom = 697.0
+
+[node name="AgeField" parent="AccountRoot" unique_id=770118226 instance=ExtResource("26_acc_field")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 0
+offset_left = 41.0
+offset_top = 729.0
+offset_right = 1040.0
+offset_bottom = 824.0
+
+[node name="PhoneField" parent="AccountRoot" unique_id=1958083000 instance=ExtResource("26_acc_field")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 0
+offset_left = 41.0
+offset_top = 856.0
+offset_right = 1040.0
+offset_bottom = 951.0
+
+[node name="EmailField" parent="AccountRoot" unique_id=1491370318 instance=ExtResource("26_acc_field")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 0
+offset_left = 41.0
+offset_top = 983.0
+offset_right = 1040.0
+offset_bottom = 1078.0
+
+[node name="BackButton" type="Button" parent="AccountRoot"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 82.0
+offset_top = 1240.0
+offset_right = 498.0
+offset_bottom = 1384.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_back")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_back")
+theme_override_styles/hover = SubResource("StyleBoxFlat_back")
+theme_override_styles/focus = SubResource("StyleBoxFlat_back")
+
+[node name="BackLabel" type="Label" parent="AccountRoot/BackButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "Назад"
+label_settings = ExtResource("33_snd_act")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveButton" type="Button" parent="AccountRoot"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 560.0
+offset_top = 1224.0
+offset_right = 1020.0
+offset_bottom = 1400.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_save")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_save")
+theme_override_styles/hover = SubResource("StyleBoxFlat_save")
+theme_override_styles/focus = SubResource("StyleBoxFlat_save")
+
+[node name="SaveLabel" type="Label" parent="AccountRoot/SaveButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "Сохранить"
+label_settings = ExtResource("33_snd_act")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HeaderLayer" type="CanvasLayer" parent="." unique_id=370272169]
+layer = 10
+
+[node name="HeaderHost" type="Control" parent="HeaderLayer" unique_id=187416312]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MenuHeader" parent="HeaderLayer/HeaderHost" unique_id=1808785275 instance=ExtResource("29_header")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="NavLayer" type="CanvasLayer" parent="." unique_id=1750577250]
+layer = 20
+
+[node name="NavHost" type="Control" parent="NavLayer" unique_id=2069759852]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BottomNav" type="Control" parent="NavLayer/NavHost" unique_id=1968141601]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -225.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TabSettings" type="TextureButton" parent="NavLayer/NavHost/BottomNav" unique_id=2115907805]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 25.0
+offset_right = 270.0
+offset_bottom = 225.0
+texture_normal = ExtResource("6_settings")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TabBase" type="TextureButton" parent="NavLayer/NavHost/BottomNav" unique_id=1533044621]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 270.0
+offset_top = 25.0
+offset_right = 540.0
+offset_bottom = 225.0
+texture_normal = ExtResource("7_base")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TabBattle" type="TextureButton" parent="NavLayer/NavHost/BottomNav" unique_id=1470765454]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 540.0
+offset_right = 810.0
+offset_bottom = 225.0
+texture_normal = ExtResource("8_fight")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TabWallet" type="TextureButton" parent="NavLayer/NavHost/BottomNav" unique_id=2146922938]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 810.0
+offset_top = 25.0
+offset_right = 1080.0
+offset_bottom = 225.0
+texture_normal = ExtResource("9_wallet")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="BaseLockLabel" type="Label" parent="NavLayer/NavHost/BottomNav" unique_id=2078737602]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 270.0
+offset_top = 28.0
+offset_right = 540.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(0.62, 0.63, 0.7, 1)
+theme_override_colors/font_outline_color = Color(0.1, 0.1, 0.16, 0.9)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 30
+text = "ур.3"
+horizontal_alignment = 1
+vertical_alignment = 1

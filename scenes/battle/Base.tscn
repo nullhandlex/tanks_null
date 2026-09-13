@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c8base001"]
+
+[ext_resource type="Script" uid="uid://bmf2aj7tr8u63" path="res://scripts/battle/base.gd" id="1_base"]
+[ext_resource type="Texture2D" uid="uid://bfhjy2nbdvpy5" path="res://assets/base/base_castle.png" id="2_base_tex"]
+[ext_resource type="PackedScene" uid="uid://b8weaponmg01" path="res://scenes/battle/weapons/WeaponMachineGun.tscn" id="3_mg"]
+[ext_resource type="PackedScene" uid="uid://cvt0ol7r7xih1" path="res://scenes/battle/weapons/WeaponMortar.tscn" id="4_mortar"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_base"]
+size = Vector2(620, 120)
+
+[node name="Base" type="Node2D" unique_id=2140269651]
+script = ExtResource("1_base")
+
+[node name="Visual" type="Sprite2D" parent="." unique_id=1056195492]
+texture = ExtResource("2_base_tex")
+
+[node name="WeaponMounts" type="Node2D" parent="." unique_id=2088229293]
+
+[node name="MountLeft" type="Marker2D" parent="WeaponMounts" unique_id=883166752]
+position = Vector2(-456, 93)
+
+[node name="WeaponMachineGun" parent="WeaponMounts/MountLeft" unique_id=1834141711 instance=ExtResource("3_mg")]
+display_height = 162.0
+
+[node name="MountCenter" type="Marker2D" parent="WeaponMounts" unique_id=459711038]
+position = Vector2(0, -49)
+
+[node name="WeaponMortar" parent="WeaponMounts/MountCenter" unique_id=434007106 instance=ExtResource("4_mortar")]
+display_height = 180.0
+
+[node name="MountRight" type="Marker2D" parent="WeaponMounts" unique_id=801494335]
+position = Vector2(456, 94)
+
+[node name="WeaponMachineGun" parent="WeaponMounts/MountRight" unique_id=396927683 instance=ExtResource("3_mg")]
+display_height = 162.0
+
+[node name="AttackTargetMarker" type="Marker2D" parent="." unique_id=1409734811]
+position = Vector2(0, 40)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=923007627]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=705091081]
+position = Vector2(0, 95)
+shape = SubResource("RectangleShape2D_base")

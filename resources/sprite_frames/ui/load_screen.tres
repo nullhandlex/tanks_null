@@ -1,0 +1,170 @@
+[gd_resource type="SpriteFrames" load_steps=41 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0001.png" id="f1"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0002.png" id="f2"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0003.png" id="f3"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0004.png" id="f4"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0005.png" id="f5"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0006.png" id="f6"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0007.png" id="f7"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0008.png" id="f8"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0009.png" id="f9"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0010.png" id="f10"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0011.png" id="f11"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0012.png" id="f12"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0013.png" id="f13"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0014.png" id="f14"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0015.png" id="f15"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0016.png" id="f16"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0017.png" id="f17"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0018.png" id="f18"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0019.png" id="f19"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0020.png" id="f20"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0021.png" id="f21"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0022.png" id="f22"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0023.png" id="f23"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0024.png" id="f24"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0025.png" id="f25"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0026.png" id="f26"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0027.png" id="f27"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0028.png" id="f28"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0029.png" id="f29"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0030.png" id="f30"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0031.png" id="f31"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0032.png" id="f32"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0033.png" id="f33"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0034.png" id="f34"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0035.png" id="f35"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0036.png" id="f36"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0037.png" id="f37"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0038.png" id="f38"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0039.png" id="f39"]
+[ext_resource type="Texture2D" path="res://assets/ui/load_screen/load_0040.png" id="f40"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("f1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f19")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f29")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f35")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f39")
+}, {
+"duration": 1.0,
+"texture": ExtResource("f40")
+}],
+"loop": true,
+"name": &"load",
+"speed": 12.0
+}]

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://explosionvfx01"]
+
+[ext_resource type="Script" path="res://scripts/effects/explosion_vfx.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/effects/death_flash.svg" id="2_flash"]
+[ext_resource type="Texture2D" path="res://assets/effects/death_shockwave.svg" id="3_wave"]
+
+[sub_resource type="CanvasItemMaterial" id="Material_flash"]
+blend_mode = 1
+
+[node name="ExplosionVfx" type="Node2D"]
+z_index = 8
+script = ExtResource("1_script")
+
+[node name="Shockwave" type="Sprite2D" parent="."]
+texture = ExtResource("3_wave")
+visible = false
+
+[node name="DustParticles" type="CPUParticles2D" parent="."]
+emitting = false
+
+[node name="SmokeParticles" type="CPUParticles2D" parent="."]
+emitting = false
+
+[node name="BurstParticles" type="CPUParticles2D" parent="."]
+emitting = false
+
+[node name="DebrisParticles" type="CPUParticles2D" parent="."]
+emitting = false
+
+[node name="Flash" type="Sprite2D" parent="."]
+material = SubResource("Material_flash")
+texture = ExtResource("2_flash")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://clickhitvfx01"]
+
+[ext_resource type="Script" path="res://scripts/effects/click_hit_vfx.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/effects/hit_ring.svg" id="2_ring"]
+
+[sub_resource type="Gradient" id="Gradient_spark"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(1, 0.95, 0.5, 1, 1, 0.6, 0.1, 0)
+
+[node name="ClickHitVfx" type="Node2D"]
+z_index = 8
+script = ExtResource("1_script")
+
+[node name="Ring" type="Sprite2D" parent="."]
+texture = ExtResource("2_ring")
+
+[node name="SparkParticles" type="CPUParticles2D" parent="."]
+emitting = true
+amount = 14
+lifetime = 0.22
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 90.0
+initial_velocity_max = 160.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color = Color(1, 0.92, 0.45, 1)
+color_ramp = SubResource("Gradient_spark")

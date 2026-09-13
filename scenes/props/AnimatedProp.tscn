@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c3propanim01"]
+
+[ext_resource type="Script" uid="uid://h6rktepemlkr" path="res://scripts/props/animated_prop.gd" id="1_prop"]
+[ext_resource type="Texture2D" uid="uid://doout4c6v6oeb" path="res://assets/shadows/ground_shadow.png" id="2_shadow"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_prop"]
+resource_local_to_scene = true
+radius = 44.8
+
+[node name="AnimatedProp" type="Node2D" unique_id=1306710606]
+y_sort_enabled = true
+script = ExtResource("1_prop")
+
+[node name="ShadowSprite" type="Sprite2D" parent="." unique_id=881100001]
+modulate = Color(0, 0, 0, 0.45)
+show_behind_parent = true
+scale = Vector2(0.5625, 0.36666667)
+texture = ExtResource("2_shadow")
+
+[node name="PropSprite" type="AnimatedSprite2D" parent="." unique_id=1076651574]
+offset = Vector2(0, -80)
+
+[node name="Blocker" type="StaticBody2D" parent="." unique_id=79764992]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker" unique_id=458159912]
+shape = SubResource("CircleShape2D_prop")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=752602657]
+radius = 44.8
