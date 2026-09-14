@@ -1,6 +1,7 @@
 extends Node
-## Attach this script to the root node of your main scene.
-## It mirrors the original UTDGameInstance.Init() behaviour.
+## Прикріпи цей скрипт до кореневого Node будь-якої сцени
+## (або створи порожню сцену і прикріпи сюди).
+## Повторює поведінку оригінального UTDGameInstance.Init().
 
 func _ready() -> void:
 	print("[TD.Main] Init called")

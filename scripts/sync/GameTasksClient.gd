@@ -25,29 +25,32 @@ func send_task_result(task: Dictionary, on_complete: Callable = Callable(), file
 		req = http_request
 	else:
 		req = HTTPRequest.new()
-		Engine.get_main_loop().root.add_child(req)
+		# Потрібно дерево сцени — інакше HTTPRequest не зможе працювати
+		var tree := Engine.get_main_loop() as SceneTree
+		if tree == null or tree.root == null:
+			printerr("[TD.GameTasksClient] No SceneTree available")
+			if on_complete.is_valid():
+				on_complete.call(false)
+			return
+		tree.root.add_child(req)
 		is_temporary = true
 
-	var callback := func(result: int, response_code: int, _headers: PackedStringArray, _body: PackedByteArray):
-		var success := result == HTTPRequest.RESULT_SUCCESS and response_code >= 200 and response_code < 300
-		if success:
-			print("[TD.GameTasksClient] Task sent successfully")
-		else:
-			printerr("[TD.GameTasksClient] Failed to send task (code %d)" % response_code)
+	req.request_completed.connect(
+		func(result: int, response_code: int, _headers: PackedStringArray, _body: PackedByteArray):
+			var success := result == HTTPRequest.RESULT_SUCCESS and response_code >= 200 and response_code < 300
+			if success:
+				print("[TD.GameTasksClient] Task sent successfully")
+			else:
+				printerr("[TD.GameTasksClient] Failed to send task (code %d)" % response_code)
 
-		task_completed.emit(success, filename)
+			task_completed.emit(success, filename)
 
-		if on_complete.is_valid():
-			on_complete.call(success)
+			if on_complete.is_valid():
+				on_complete.call(success)
 
-		if is_temporary and is_instance_valid(req):
-			req.queue_free()
-
-	# Disconnect previous if reusing
-	if req.request_completed.is_connected(callback):
-		req.request_completed.disconnect(callback)
-
-	req.request_completed.connect(callback, CONNECT_ONE_SHOT)
+			if is_temporary and is_instance_valid(req):
+				req.queue_free()
+	, CONNECT_ONE_SHOT)
 
 	var err := req.request(url, headers, HTTPClient.METHOD_PUT, body)
 	if err != OK:

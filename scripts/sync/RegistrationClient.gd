@@ -19,14 +19,18 @@ func register_user() -> void:
 		req = http_request
 	else:
 		req = HTTPRequest.new()
-		Engine.get_main_loop().root.add_child(req)
+		var tree := Engine.get_main_loop() as SceneTree
+		if tree == null or tree.root == null:
+			printerr("[TD.RegistrationClient] No SceneTree available")
+			return
+		tree.root.add_child(req)
 		temporary = true
 
 	req.request_completed.connect(func(result: int, code: int, _h: PackedStringArray, body: PackedByteArray):
 		if result == HTTPRequest.RESULT_SUCCESS:
 			print("[TD.RegistrationClient] Success: ", body.get_string_from_utf8())
 		else:
-			printerr("[TD.RegistrationClient] Request failed")
+			printerr("[TD.RegistrationClient] Request failed (code %d)" % code)
 		if temporary and is_instance_valid(req):
 			req.queue_free()
 	, CONNECT_ONE_SHOT)

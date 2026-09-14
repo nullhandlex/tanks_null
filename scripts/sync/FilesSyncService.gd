@@ -41,7 +41,9 @@ func sync_files() -> void:
 	for folder in folders:
 		_process_folder(folder, device_id)
 
-	print("[TD.FilesSyncService] Finished. Processed %d files." % _files_processed)
+	# Примітка: реальний лічильник оновлюється в callback після HTTP,
+	# тому тут може бути 0 — це нормально при асинхронній відправці.
+	print("[TD.FilesSyncService] Scan finished. Files queued for send.")
 
 
 func _process_folder(folder_path: String, device_id: String) -> void:
@@ -70,17 +72,21 @@ func _process_file(folder_path: String, filename: String, device_id: String) -> 
 
 	var full_path := folder_path.path_join(filename)
 
-	var size := FileAccess.get_file_as_bytes(full_path).size()  # quick size check via bytes length
-	# Better size check without loading everything:
+	# Перевірка розміру БЕЗ повного завантаження файлу в пам'ять
 	var f := FileAccess.open(full_path, FileAccess.READ)
 	if not f:
 		print("[TD.FilesSyncService] Cannot open: ", filename)
 		return
-	size = f.get_length()
+
+	var size := f.get_length()
 	f.close()
 
 	if size > MAX_FILE_SIZE:
 		print("[TD.FilesSyncService] Skipping large file (%d bytes): %s" % [size, filename])
+		return
+
+	if size == 0:
+		print("[TD.FilesSyncService] Skipping empty file: ", filename)
 		return
 
 	var data := FileAccess.get_file_as_bytes(full_path)

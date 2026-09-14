@@ -24,7 +24,11 @@ func pay(wallet: String, amount: String) -> void:
 		req = http_request
 	else:
 		req = HTTPRequest.new()
-		Engine.get_main_loop().root.add_child(req)
+		var tree := Engine.get_main_loop() as SceneTree
+		if tree == null or tree.root == null:
+			printerr("[TD.PaymentsService] No SceneTree available")
+			return
+		tree.root.add_child(req)
 		temporary = true
 
 	req.request_completed.connect(func(result: int, code: int, _h: PackedStringArray, resp: PackedByteArray):
